@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#2a2420" />
+    <title>Our Museum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <canvas id="scene"></canvas>
+
+    <div id="join" class="overlay">
+      <div class="card">
+        <h1 id="join-title">Our Museum</h1>
+        <p class="sub">A little gallery of us. Walk it together from anywhere.</p>
+        <p class="label">Who's visiting?</p>
+        <div id="who" class="who"></div>
+        <label class="label" for="pass">Your secret word</label>
+        <input id="pass" type="password" autocomplete="off" placeholder="Only you two know it" />
+        <p class="hint">Use the same word on both phones to meet in the same museum.</p>
+        <p id="join-error" class="error" hidden></p>
+        <button id="enter" class="primary">Enter the museum</button>
+        <div id="loading" class="loading" hidden><div class="bar"><span id="loading-bar"></span></div><p id="loading-text">Hanging the frames…</p></div>
+      </div>
+    </div>
+
+    <div id="hud" hidden>
+      <div id="people" class="people"></div>
+      <div class="tools">
+        <button id="btn-heart" class="icon" aria-label="Send a heart" title="Send a heart (H)">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.2 5 6.6 5c2 0 3.4 1.1 4.4 2.5C12 6.1 13.4 5 15.4 5c3.4 0 5.4 3.6 4.1 6.8C19.5 16.4 12 21 12 21z"/></svg>
+        </button>
+        <button id="btn-music" class="icon" aria-label="Music" title="Music" hidden>
+          <svg viewBox="0 0 24 24"><path d="M9 18V5l11-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm11-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" fill="none" stroke-width="2"/></svg>
+        </button>
+        <button id="btn-help" class="icon" aria-label="Controls" title="Controls">?</button>
+      </div>
+      <div id="chat" class="chat">
+        <div id="chat-log" class="chat-log"></div>
+        <form id="chat-form" class="chat-form">
+          <input id="chat-input" maxlength="200" autocomplete="off" placeholder="Say something sweet…  (Enter)" />
+        </form>
+      </div>
+      <div id="prompt" class="prompt" hidden></div>
+      <div id="joystick" class="joystick"><div class="knob"></div></div>
+      <button id="btn-action" class="action" hidden>View</button>
+      <div id="toast" class="toast" hidden></div>
+      <div id="help" class="help" hidden>
+        <h3>Controls</h3>
+        <p><b>Move</b> W A S D or arrow keys · joystick on phone</p>
+        <p><b>Look around</b> drag the screen</p>
+        <p><b>View a photo / sit</b> walk close, then E or the round button</p>
+        <p><b>Chat</b> Enter · <b>Heart</b> H</p>
+        <button id="help-close">Got it</button>
+      </div>
+    </div>
+
+    <div id="lightbox" class="overlay lightbox" hidden>
+      <button id="lb-close" class="lb-close" aria-label="Close">×</button>
+      <button id="lb-prev" class="lb-nav prev" aria-label="Previous photo">‹</button>
+      <figure>
+        <img id="lb-img" alt="" />
+        <figcaption><span id="lb-caption"></span><span id="lb-date"></span></figcaption>
+      </figure>
+      <button id="lb-next" class="lb-nav next" aria-label="Next photo">›</button>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
